@@ -1,0 +1,22 @@
+{
+  "id": "storefront",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "flakio/storefront:2",
+      "privileged": false,
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "parameters": []
+    }
+  },
+  "instances": 2,
+  "cpus": 0.1,
+  "mem": 128
+}
