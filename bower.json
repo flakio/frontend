@@ -1,0 +1,26 @@
+{
+  "name": "flakio",
+  "description": "Flack io client app",
+  "main": "index.js",
+  "authors": [
+    "Trent Swanson <trent@fullscale180.com>"
+  ],
+  "license": "ISC",
+  "homepage": "http://flak.io",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.4",
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-aria": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "flakio",
+  "version": "1.0.0",
+  "description": "Flack io client app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flakio/frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flakio/frontend/issues"
+  },
+  "homepage": "http://flak.io",
+  "dependencies": {
+    "material-ui": "^0.13.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-tap-event-plugin": "^0.2.1"
+  }
+}
