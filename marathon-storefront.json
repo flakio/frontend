@@ -1,9 +1,9 @@
 {
-  "id": "storefront",
+  "id": "frontend",
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "flakio/storefront:2",
+      "image": "flakio/frontend:3",
       "privileged": false,
       "network": "BRIDGE",
       "portMappings": [
