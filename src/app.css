@@ -180,3 +180,15 @@ _:-ms-input-placeholder, :root .demo-graph {
   box-sizing: border-box;
   align-items: center;
 }
+
+.active {
+  background: rgba(1,0,0, .05);
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.red {
+  color: #f94d49;
+}
