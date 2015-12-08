@@ -184,3 +184,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 .active {
   background: rgba(1,0,0, .05);
 }
+
+.clickable{
+  cursor: pointer;
+}

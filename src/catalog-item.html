@@ -1,0 +1,44 @@
+
+
+
+<div layout="row">
+	<div layout="column" style="width:400px;">
+		<a class="clickable" ng-click="vm.back()">
+			<h2>
+				Back
+			</h2>
+		</a>
+
+		<img ng-src="{{vm.item.productArtUrl}}" class="md-card-image" alt="{{vm.item.title}} Image">
+	</div>
+
+	<div layout="column">
+		<div layout="row">
+			<h2>
+				{{vm.item.title}}
+			</h2>
+		</div>
+		<div layout="row">
+			<h3>
+				{{vm.item.description}}
+			</h3>
+		</div>
+
+		<div layout="row">
+			<div layout="column">
+				<label>Quantity:</label>
+				<md-select class="md-select-form" ng-model="vm.quantity">
+					<md-option ng-repeat="quantity in vm.quantityList" ng-value="quantity">{{::quantity}}</md-option>
+				</md-select>
+			</div>
+
+			<div layout="column">
+				<md-button class="md-button md-primary md-default md-raised">Add to cart</md-button>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
