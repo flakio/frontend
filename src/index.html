@@ -22,21 +22,23 @@
 
   <body ng-app="flakio" layout="column" ng-cloak >
 
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-controller="Main as mainCtrl">
 
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:50px;padding-left:5px;padding-top:5px;" />
+    <md-toolbar layout="row" class="md-whiteframe-z1" >
+      <div layout="column">
+        <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:50px;padding-left:5px;padding-top:5px;" />
+      </div>
+      <div layout="column" layout-fill layout-align="center end">
+        <div >
+          <a href="/#/checkout/" class="red"> CART (<span class="cart-count">{{mainCtrl.totalItems}}</span>)</a>
+        </div>
+      </div>
+
+
     </md-toolbar>
     
-    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2">
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <md-content>
-        
-      </md-content>
-    </md-sidenav>
-    
-    <md-content class="md-padding" layout="row" layout-wrap layout-align="center start" ng-view>
-    </md-content>
+    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2" ng-view>
+
     </div>
   </div>
 
@@ -47,5 +49,8 @@
     <script src="/bower_components/angular-route/angular-route.js"></script>
 
     <script type="text/javascript" src="/app/app.js" ></script>
+    <script type="text/javascript" src="/app/cart.js" ></script>
+    <script type="text/javascript" src="/app/catalog.js" ></script>
+    <script type="text/javascript" src="/app/checkout.js" ></script>
   </body>
 </html>

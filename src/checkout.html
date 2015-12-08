@@ -1,0 +1,95 @@
+<div layout="column">
+    <div>
+        <nav id="nav-filter">
+            <a href="/#/" class="url-pagination"><i class="fa fa-angle-left"></i> -- Back to catalog</a>
+        </nav>
+    </div>
+    <div>
+        <div layout="row">
+            <div flex="50">
+                <h1>Checkout</h1>
+                <form name="checkoutForm">
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Email</label>
+                            <input name="email" type="email" ng-model="vm.email" required>
+                            <div ng-messages="checkoutForm.email.$error">
+                                <div ng-message ng-show="checkoutForm.email.$error.email">Input valid email.</div>
+                                <div ng-message ng-show="checkoutForm.email.$error.required">Input email.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Address</label>
+                            <input ng-model="vm.address.address">
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>City</label>
+                            <input ng-model="vm.address.city">
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>State</label>
+                            <input ng-model="vm.address.state">
+                        </md-input-container>
+                    </div>
+                    <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Zip</label>
+                            <input name="zip" ng-model="vm.address.zip" required>
+                            <div ng-messages="checkoutForm.zip.$error">
+                                <div ng-message ng-show="checkoutForm.zip.$error.required">Input zip.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Planet</label>
+                            <input ng-model="vm.address.planet">
+                        </md-input-container>
+                    </div>
+
+                </form>
+
+                <md-button ng-disabled="checkoutForm.$invalid || !vm.allowCheckout"
+                           class="md-button md-primary md-default md-raised"
+                           ng-click="vm.checkout()">Checkout</md-button>
+
+            </div>
+            <div flex="50">
+                <h3>Shopping Cart</h3>
+                <p ng-show="vm.isEmpty">Your shopping cart is empty.</p>
+                <table ng-show="!vm.isEmpty" class="table table-hover table-mc-light-blue">
+                    <thead>
+                    <tr>
+                        <th>DESCRIPTION</th>
+                        <th>PRICE</th>
+                        <th>QTY</th>
+                        <th>TOTAL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- FOR EACH ITEM IN THE CART -->
+                    <tr ng-repeat="item in vm.cartItems">
+                        <td style="width: 100%">
+                            <img ng-src="{{item.imageUrl}}" style="float: left; width: 95px; padding-right: 0.5625em;" />{{item.title}}
+
+                            <br /><a class="clickable" ng-click="vm.removeItem(item)">Remove</a>
+                        </td>
+                        <td>{{item.price | currency}}</td>
+                        <td class="data-center">{{item.quantity}}</td>
+                        <td>{{(item.price * item.quantity) | currency}}</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">Total Due</td>
+                        <td>{{vm.total | currency}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
