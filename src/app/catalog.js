@@ -10,7 +10,7 @@ function CatalogController(catalogService, $routeParams) {
     if (!self.allCatalogItems){
       return;
     }
-    if (categoryId == 0){
+    if (!categoryId){
       self.catalog = self.allCatalogItems;
       return;
     }
@@ -26,7 +26,7 @@ function CatalogController(catalogService, $routeParams) {
 
   catalogService.categories().then(function(categories){
     var tmpCategories = categories.slice(0);
-    tmpCategories.splice(0, 0, {id: 0, name: 'Everything'})
+    tmpCategories.splice(0, 0, {id: null, name: 'Everything'})
     self.categories = tmpCategories;
   });
 }
