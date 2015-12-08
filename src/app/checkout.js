@@ -45,7 +45,7 @@
       self.checkout = function(){
 
         self.allowCheckout = false;
-        $http.post('http://40.112.184.45:9000/order', getOrder())
+        $http.post('/order', getOrder())
           .then(function(data){
             $location.url('/#/thankyou');
           }, function(error){
