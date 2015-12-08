@@ -98,15 +98,15 @@ function CatalogService($q, $http) {
 
     deferred.resolve([{
       id: 1,
-      name: 'Lazer Blaster'
+      name: 'Lazers'
     },
       {
         id: 2,
-        name: 'Pet Space Rock'
+        name: 'Rocks'
       },
       {
         id: 3,
-        name: 'New World Flag Pole'
+        name: 'Flags'
       }]);
 
     return deferred.promise;
