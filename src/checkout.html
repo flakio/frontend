@@ -70,7 +70,7 @@
                     </thead>
                     <tbody>
                     <!-- FOR EACH ITEM IN THE CART -->
-                    <tr ng-repeat="item in vm.cartItems">
+                    <tr ng-repeat="item in vm.cartItems track by item.id">
                         <td style="width: 100%">
                             <img ng-src="{{item.imageUrl}}" style="float: left; width: 95px; padding-right: 0.5625em;" />{{item.title}}
 
