@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Flak.io Microservices Storefront Application</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="/app.css"/>
+
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
+  </head>
+
+  <body ng-app="flakio" layout="column" ng-cloak >
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:50px;padding-left:5px;padding-top:5px;" />
+    </md-toolbar>
+    
+    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-content>
+        
+      </md-content>
+    </md-sidenav>
+    
+    <md-content class="md-padding" layout="row" layout-wrap layout-align="center start" ng-view>
+    </md-content>
+    </div>
+  </div>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+
+    <script type="text/javascript" src="/app/app.js" ></script>
+  </body>
+</html>
