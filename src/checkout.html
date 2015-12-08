@@ -14,7 +14,7 @@
                             <label>Email</label>
                             <input name="email" type="email" ng-model="vm.email" required>
                             <div ng-messages="checkoutForm.email.$error">
-                                <div ng-message ng-show="checkoutForm.email.$error.email">Input valid email.</div>
+                                <div ng-message="email" ng-show="checkoutForm.email.$error.email">Input valid email.</div>
                                 <div ng-message ng-show="checkoutForm.email.$error.required">Input email.</div>
                             </div>
                         </md-input-container>

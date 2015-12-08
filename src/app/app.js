@@ -25,7 +25,7 @@ angular.module('flakio', ['ngRoute', 'ngMaterial'])
       .when('/thankyou', {
         templateUrl:'thankyou.html'
       })
-			.when('/', {
+			.when('/:categoryId?', {
 			controller:'Catalog as catalog',
 			templateUrl:'catalog.html'
 			})

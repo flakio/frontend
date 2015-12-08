@@ -1,37 +1,34 @@
 
-function CatalogController(catalogService) {
+function CatalogController(catalogService, $routeParams) {
   var self = this;
+  self.selectedCategoryId = $routeParams.categoryId || 0;
 
-  catalogService.catalog().then(function(catalog){
-    self.ActiveItemId = 0;
-    self.allCatalogItems = catalog;
-    self.catalog = catalog;
-  });
 
-  catalogService.categories().then(function(categories){
-    self.selectedCategoryId = 0;
-    var tmpCategories = categories.slice(0);
-    tmpCategories.splice(0, 0, {id: 0, name: 'Everything'})
-    self.categories = tmpCategories;
-  });
 
-  self.openItem = function(item){
-    self.ActiveItemId = item.id;
-  };
-
-  self.selectCategory = function(category){
-    self.selectedCategoryId = category.id;
+  var selectCategory = function(categoryId){
+    self.selectedCategoryId = categoryId;
     if (!self.allCatalogItems){
       return;
     }
-    if (category.id === 0){
+    if (categoryId == 0){
       self.catalog = self.allCatalogItems;
       return;
     }
     self.catalog = self.allCatalogItems.filter(function(x){
-      return x.categoryId === category.id;
+      return x.categoryId == categoryId;
     });
   }
+
+  catalogService.catalog().then(function(catalog){
+    self.allCatalogItems = catalog;
+    selectCategory(self.selectedCategoryId);
+  });
+
+  catalogService.categories().then(function(categories){
+    var tmpCategories = categories.slice(0);
+    tmpCategories.splice(0, 0, {id: 0, name: 'Everything'})
+    self.categories = tmpCategories;
+  });
 }
 
 function CatalogItemController(catalogService, $routeParams, cartService){

@@ -2,11 +2,13 @@
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 	<md-content>
 		<md-list>
-			<md-list-item class="md-3-line" ng-repeat="item in catalog.categories" ng-click="catalog.selectCategory(item)"
-						  ng-class="{ active: catalog.selectedCategoryId === item.id}">
+			<md-list-item class="md-3-line" ng-repeat="item in catalog.categories"
+						  ng-class="{ active: catalog.selectedCategoryId == item.id}">
 
 				<div class="md-list-item-text">
-					<h3>{{::item.name}}</h3>
+					<a ng-href="/#/{{item.id}}">
+						<h3>{{::item.name}}</h3>
+					</a>
 				</div>
 				<md-divider ng-hide="$last"></md-divider>
 			</md-list-item>
