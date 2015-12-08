@@ -33,7 +33,7 @@
 			</div>
 
 			<div layout="column">
-				<md-button class="md-button md-primary md-default md-raised">Add to cart</md-button>
+				<md-button ng-show="vm.item" class="md-button md-primary md-default md-raised" ng-click="vm.addToCart()">Add to cart</md-button>
 			</div>
 
 		</div>

@@ -188,3 +188,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 .clickable{
   cursor: pointer;
 }
+
+.red {
+  color: #f94d49;
+}

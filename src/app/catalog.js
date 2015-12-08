@@ -10,7 +10,6 @@ function CatalogController(catalogService) {
 
   catalogService.categories().then(function(categories){
     self.selectedCategoryId = 0;
-    console.log(categories)
     var tmpCategories = categories.slice(0);
     tmpCategories.splice(0, 0, {id: 0, name: 'Everything'})
     self.categories = tmpCategories;
@@ -35,7 +34,7 @@ function CatalogController(catalogService) {
   }
 }
 
-function CatalogItemController(catalogService, $routeParams){
+function CatalogItemController(catalogService, $routeParams, cartService){
   var self = this;
   self.item = null;
 
@@ -46,6 +45,10 @@ function CatalogItemController(catalogService, $routeParams){
     self.quantityList.push(i);
   }
 
+
+  self.addToCart = function(){
+    cartService.addItem(self.item.id, self.item.title, self.quantity, self.item.salePrice, self.item.productArtUrl);
+  };
 
   self.back = function(){
     history.back();
@@ -65,21 +68,24 @@ function CatalogService($q, $http) {
     categoryId: 1,
     title: 'Lazer Blaster',
     description: 'Don\'t get stuck on mars without it.',
-    productArtUrl: 'https://flak.blob.core.windows.net/catalog/lazer.jpg'
+    productArtUrl: 'https://flak.blob.core.windows.net/catalog/lazer.jpg',
+    salePrice: 10
   },
     {
       id: '2',
       categoryId: 2,
       title: 'Pet Space Rock',
       description: 'Just don\'t feed it after midnight.',
-      productArtUrl: 'https://flak.blob.core.windows.net/catalog/pet-bio-rock.jpg'
+      productArtUrl: 'https://flak.blob.core.windows.net/catalog/pet-bio-rock.jpg',
+      salePrice: 20
     },
     {
       id: '3',
       categoryId: 3,
       title: 'New World Flag Pole',
       description: 'Claim that new world you found.',
-      productArtUrl: 'https://flak.blob.core.windows.net/catalog/indestructable-high-suction-flag-pole.jpg'
+      productArtUrl: 'https://flak.blob.core.windows.net/catalog/indestructable-high-suction-flag-pole.jpg',
+      salePrice: 30
     }];
 
   this.item = function(id){
