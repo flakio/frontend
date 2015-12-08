@@ -16,10 +16,10 @@
 
 <md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
 	<md-card style="width:300px;" ng-repeat="item in catalog.catalog">
-		<img ng-src="{{item.imagePath}}" class="md-card-image" alt="{{item.name}} Image">
+		<img ng-src="{{item.productArtUrl}}" class="md-card-image" alt="{{item.title}} Image">
 		<md-card-title layout row>
 			<md-card-title-text>
-				<span class="md-headline">{{item.name}}</span>
+				<span class="md-headline">{{item.title}}</span>
 			</md-card-title-text>
 		</md-card-title>
 		<md-card-content>

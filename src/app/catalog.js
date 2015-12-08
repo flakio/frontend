@@ -19,13 +19,16 @@ angular.module('flakio')
       if (!self.allCatalogItems){
         return;
       }
-      //todo: figure out item category relationship
       if (category.id === 0){
         self.catalog = self.allCatalogItems;
         return;
       }
+
+      console.log(self.allCatalogItems)
+      console.log(category)
+
       self.catalog = self.allCatalogItems.filter(function(x){
-        return x.name === category.name;
+        return x.categoryId === category.id;
       });
     }
   })
@@ -36,11 +39,11 @@ angular.module('flakio')
     this.categories = function(){
       var deferred = $q.defer();
 
-      deferred.resolve( [{id: '1',
+      deferred.resolve( [{id: 1,
         name: 'Lazer Blaster'},
-        {id: '2',
+        {id: 2,
           name: 'Pet Space Rock'},
-        {id: '3',
+        {id: 3,
           name: 'New World Flag Pole'} ]);
 
       return deferred.promise;
@@ -61,17 +64,20 @@ angular.module('flakio')
       var deferred = $q.defer();
 
       deferred.resolve( [{id: '1',
-        name: 'Lazer Blaster',
+        categoryId: 1,
+        title: 'Lazer Blaster',
         description: 'Don\'t get stuck on mars without it.',
-        imagePath: 'https://flak.blob.core.windows.net/catalog/lazer.jpg'},
+        productArtUrl: 'https://flak.blob.core.windows.net/catalog/lazer.jpg'},
         {id: '2',
-          name: 'Pet Space Rock',
+          categoryId: 2,
+          title: 'Pet Space Rock',
           description: 'Just don\'t feed it after midnight.',
-          imagePath: 'https://flak.blob.core.windows.net/catalog/pet-bio-rock.jpg'},
+          productArtUrl: 'https://flak.blob.core.windows.net/catalog/pet-bio-rock.jpg'},
         {id: '3',
-          name: 'New World Flag Pole',
+          categoryId: 3,
+          title: 'New World Flag Pole',
           description: 'Claim that new world you found.',
-          imagePath: 'https://flak.blob.core.windows.net/catalog/indestructable-high-suction-flag-pole.jpg'} ]);
+          productArtUrl: 'https://flak.blob.core.windows.net/catalog/indestructable-high-suction-flag-pole.jpg'} ]);
 
       return deferred.promise;
 
