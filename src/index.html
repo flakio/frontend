@@ -28,15 +28,8 @@
       <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:50px;padding-left:5px;padding-top:5px;" />
     </md-toolbar>
     
-    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2">
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <md-content>
-        
-      </md-content>
-    </md-sidenav>
-    
-    <md-content class="md-padding" layout="row" layout-wrap layout-align="center start" ng-view>
-    </md-content>
+    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2" ng-view>
+
     </div>
   </div>
 
@@ -47,5 +40,6 @@
     <script src="/bower_components/angular-route/angular-route.js"></script>
 
     <script type="text/javascript" src="/app/app.js" ></script>
+    <script type="text/javascript" src="/app/catalog.js" ></script>
   </body>
 </html>
