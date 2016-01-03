@@ -1,56 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
+<html lang="en" ng-app="flakio">
+<head>
     <title>Flak.io Microservices Storefront Application</title>
 
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="/app.css"/>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="/app.css" />
 
     <style type="text/css">
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
         }
     </style>
+</head>
 
-  </head>
-
-  <body ng-app="flakio" layout="column" ng-cloak >
-
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-controller="Main as mainCtrl">
-
-    <md-toolbar layout="row" class="md-whiteframe-z1" >
-      <div layout="column">
-        <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:50px;padding-left:5px;padding-top:5px;" />
-      </div>
-      <div layout="column" layout-fill layout-align="center end">
-        <div >
-          <a href="/#/checkout/" class="red"> CART (<span class="cart-count">{{mainCtrl.totalItems}}</span>)</a>
-        </div>
-      </div>
-
-
-    </md-toolbar>
-    
-    <div flex layout="row" tabIndex="-1" role="content" class="md-whiteframe-z2" ng-view>
-
+<body layout="row" ng-cloak ng-controller="Main as mainCtrl">
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-tall md-hue-2">
+            <div layout="column" class="md-toolbar-tools-bottom inset">
+                <img src="https://flak.blob.core.windows.net/app/flak-logo-white.png" style="height:92px;padding-left:5px;padding-top:5px;"
+                />
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-item ng-repeat="item in mainCtrl.categories">
+                <a class="sidenav" ng-href="/#/{{item.id || ''}}">
+                <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                    <div class="inset">
+                    <ng-md-icon icon="dashboard"></ng-md-icon>
+                    </div>
+                    <div class="inset">{{item.name}}
+                    </div>
+                </md-item-content>
+                </a>
+            </md-item>
+        </md-list>
+    </md-sidenav>
+    <div layout="column" class="relative" layout-fill role="main">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>
+            Microservices sample
+          </h3>
+                <span flex></span>
+                <a href="/#/checkout/"> CART (<span class="cart-count">{{mainCtrl.totalItems}}</span>)</a>
+            </div>
+        </md-toolbar>
+        <md-content flex md-scroll-y>
+            <div layout="column" layout-fill layout-padding ng-view>
+            </div>
+        </md-content>
     </div>
-  </div>
+    <!-- Angular Material Dependencies -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
 
-    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-material/angular-material.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/cart.js"></script>
+    <script type="text/javascript" src="/app/catalog.js"></script>
+    <script type="text/javascript" src="/app/checkout.js"></script>
+</body>
 
-    <script type="text/javascript" src="/app/app.js" ></script>
-    <script type="text/javascript" src="/app/cart.js" ></script>
-    <script type="text/javascript" src="/app/catalog.js" ></script>
-    <script type="text/javascript" src="/app/checkout.js" ></script>
-  </body>
 </html>

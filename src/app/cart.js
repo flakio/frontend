@@ -1,6 +1,4 @@
-
 (function(){
-
 
   function LocalStorage(){
     this.get = function(name){
@@ -74,6 +72,3 @@
 
   angular.module('flakio').service('cartService', CartService);
 })();
-
-
-
