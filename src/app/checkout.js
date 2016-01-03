@@ -29,12 +29,22 @@
       };
 
       var getOrder = function(){
+
+        var items = cartService.getItems().map(function(item){
+          return {
+            productId: item.id,
+            productName: item.title,
+            quantity: item.quantity,
+            price: item.price
+          }
+        });
+
         return{
           customerId:"bmscholl",
           email: self.email,
-          status:0,
-          "total": self.total,
-          "shippingAddress": self.address
+          total: self.total,
+          shippingAddress: self.address,
+          items: items
         }
       };
 
