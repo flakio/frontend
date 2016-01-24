@@ -1,0 +1,18 @@
+machine:
+  services:
+    - docker
+
+general:
+  build_dir: src
+  
+dependencies:
+  override:
+    - docker info
+    - cd .. && docker build -t flakio/frontend:$CIRCLE_BUILD_NUM .
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push flakio/frontend:$CIRCLE_BUILD_NUM
