@@ -12,7 +12,7 @@ dependencies:
 
 test:
   post:
-    - echo "Warn: no test specified"
+    - "echo \"Warn: no test specified\""
 
 deployment:
   hub:
