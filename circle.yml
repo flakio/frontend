@@ -1,4 +1,6 @@
 machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   services:
     - docker
 
@@ -7,6 +9,7 @@ general:
   
 dependencies:
   override:
+    - docker version
     - docker info
     - cd .. && docker build --build-arg build_number=$CIRCLE_BUILD_NUM -t flakio/frontend:$CIRCLE_BUILD_NUM .
 
