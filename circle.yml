@@ -20,3 +20,5 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push flakio/frontend:$CIRCLE_BUILD_NUM
+      - docker tag flakio/frontend:$CIRCLE_BUILD_NUM flakio/frontend:latest
+      - docker push flakio/frontend:latest
