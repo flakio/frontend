@@ -1,9 +1,13 @@
-<div layout="column">
-    <div>
-        <nav id="nav-filter">
-            <a href="/#/" class="url-pagination"><i class="fa fa-angle-left"></i> -- Back to catalog</a>
-        </nav>
+<div layout="row">
+    <div layout="column">
+        <a href="/#/" class="url-pagination" style="color: rgba(0,0,0,0.87);text-decoration:none;">
+            <h4>
+                <i class="material-icons" style="top: 4px;position: relative; ">arrow_back</i> Back to catalog
+            </h4>
+        </a>
     </div>
+</div>
+<div layout="column">
     <div>
         <div layout="row">
             <div flex="50">
@@ -51,16 +55,16 @@
                 </form>
                 <md-button ng-disabled="checkoutForm.$invalid || !vm.allowCheckout"
                            class="md-button md-primary md-default md-raised"
-                           ng-click="vm.checkout()">Checkout</md-button>
+                           ng-click="vm.checkout()">Submit Order</md-button>
 
             </div>
-            <div flex="50">
-                <h3>Shopping Cart</h3>
+            <div flex="50" layout-padding>
+                <h5>Shopping Cart</h5>
                 <p ng-show="vm.isEmpty">Your shopping cart is empty.</p>
-                <table ng-show="!vm.isEmpty" class="table table-hover table-mc-light-blue">
+                <table ng-show="!vm.isEmpty" class="table table-hover table-mc-light-blue mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                     <thead>
                     <tr>
-                        <th>DESCRIPTION</th>
+                        <th style="text-align:left;">DESCRIPTION</th>
                         <th>PRICE</th>
                         <th>QTY</th>
                         <th>TOTAL</th>
@@ -69,10 +73,9 @@
                     <tbody>
                     <!-- FOR EACH ITEM IN THE CART -->
                     <tr ng-repeat="item in vm.cartItems track by item.id">
-                        <td style="width: 100%">
-                            <img ng-src="{{item.imageUrl}}" style="float: left; width: 95px; padding-right: 0.5625em;" />{{item.title}}
-
-                            <br /><a class="clickable" ng-click="vm.removeItem(item)">Remove</a>
+                        <td style="width: 100%;text-align:left">
+                            <img ng-src="{{item.imageUrl}}" style="float: left; width: 95px; padding:0 10px 10px 0;" />
+                            <span>{{item.title}}<br /><a class="clickable" ng-click="vm.removeItem(item)">Remove</a></span>
                         </td>
                         <td>{{item.price | currency}}</td>
                         <td class="data-center">{{item.quantity}}</td>
@@ -87,7 +90,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </div>
 
