@@ -23,18 +23,18 @@ angular.module('flakio', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
         $routeProvider
             .when('/item/:id', {
                 controller: 'CatalogItem as vm',
-                templateUrl: 'catalog-item.html'
+                templateUrl: 'app/views/catalog-item.html'
             })
             .when('/checkout', {
                 controller: 'Checkout as vm',
-                templateUrl: 'checkout.html'
+                templateUrl: 'app/views/checkout.html'
             })
             .when('/thankyou', {
-                templateUrl: 'thankyou.html'
+                templateUrl: 'app/views/thankyou.html'
             })
             .when('/:categoryId?', {
                 controller: 'Catalog as catalog',
-                templateUrl: 'catalog.html'
+                templateUrl: 'app/views/catalog.html'
             })
             .otherwise({
                 redirectTo: '/'
@@ -52,9 +52,9 @@ angular.module('flakio', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
                 'hue-1': '50'
             })
             .accentPalette('pink');
-            
+
         $mdThemingProvider.theme('input', 'default')
             .primaryPalette('grey');
-        
+
         //$locationProvider.html5Mode(true);
     });
