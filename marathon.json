@@ -8,7 +8,7 @@
       "network": "BRIDGE",
       "portMappings": [
         {
-          "containerPort": 80,
+          "servicePort": 10000,
           "protocol": "tcp"
         }
       ],
@@ -30,8 +30,6 @@
   "cpus": 0.1,
   "mem": 128,
   "labels": {
-    "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST":"{{dns-label}}.{{location}}.cloudapp.azure.com",
-    "HAPROXY_0_PATH":"/"
+    "HAPROXY_GROUP":"internal"
   }
 }
