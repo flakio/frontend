@@ -8,6 +8,7 @@
       "network": "BRIDGE",
       "portMappings": [
         {
+          "containerPort": 80,
           "servicePort": 10000,
           "protocol": "tcp"
         }
