@@ -52,13 +52,13 @@ function CatalogService($q, $http) {
     var self = this;
 
     var items = [{
-            id: '1',
-            categoryId: 1,
-            title: 'Lazer Blaster',
-            description: 'Don\'t get stuck on mars without it.',
-            productArtUrl: 'https://flak.blob.core.windows.net/catalog/lazer.jpg',
-            salePrice: 10
-        },
+        id: '1',
+        categoryId: 1,
+        title: 'Lazer Blaster',
+        description: 'Don\'t get stuck on mars without it.',
+        productArtUrl: 'https://flak.blob.core.windows.net/catalog/lazer.jpg',
+        salePrice: 10
+    },
         {
             id: '2',
             categoryId: 2,
@@ -87,32 +87,16 @@ function CatalogService($q, $http) {
     this.categories = function () {
         var deferred = $q.defer();
 
-        deferred.resolve(
-            [{
-                id: 1,
-                name: 'Lazers'
-            },
-            {
-                id: 2,
-                name: 'Rocks'
-            },
-            {
-                id: 3,
-                name: 'Flags'
-            }]);
-
-        return deferred.promise;
-
         $http({
             method: 'GET',
-            url: '/api/categories'
+            url: '/api/catalog/categories'
         }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
+            def.resolve(reponse);
         }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+            def.reject(response);
         });
+
+        return deferred.promise;
     };
 
     this.catalog = function () {
@@ -124,7 +108,7 @@ function CatalogService($q, $http) {
 
         $http({
             method: 'GET',
-            url: '/api/catalog'
+            url: '/api/catalog/products'
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
