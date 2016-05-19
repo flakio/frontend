@@ -89,13 +89,27 @@ function CatalogService($q, $http) {
 
         $http({
             method: 'GET',
-            url: '/api/catalog/categories'
+            url: '/api/categories'
         }).then(function successCallback(response) {
-            def.resolve(reponse);
+            deferred.resolve(response);
         }, function errorCallback(response) {
-            def.reject(response);
+            
+            //If we can't connect put the sample data in there for now
+            deferred.resolve(
+            [{
+                id: 1,
+                name: 'Lazers'
+            },
+            {
+                id: 2,
+                name: 'Rocks'
+            },
+            {
+                id: 3,
+                name: 'Flags'
+            }]);
         });
-
+        
         return deferred.promise;
     };
 
