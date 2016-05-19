@@ -89,7 +89,7 @@ function CatalogService($q, $http) {
 
         $http({
             method: 'GET',
-            url: '/api/categories'
+            url: '/api/catalog/categories'
         }).then(function successCallback(response) {
             deferred.resolve(response);
         }, function errorCallback(response) {
