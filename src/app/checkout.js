@@ -57,7 +57,7 @@
         self.allowCheckout = false;
         $http.post('/api/order', getOrder())
           .then(function (data) {
-            $location.url('/#/thankyou');
+            $location.url('/thankyou');
           }, function (error) {
             self.allowCheckout = true;
             alert('can not checkout: ' + error.statusText)

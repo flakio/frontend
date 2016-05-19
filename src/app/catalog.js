@@ -79,7 +79,7 @@ function CatalogService($q, $http) {
     this.item = function (id) {
         var deferred = $q.defer();
 
-        deferred.resolve(items.find(function (x) { return x.id == id }));
+        deferred.resolve(catalog.find(function (x) { return x.id == id }));
 
         return deferred.promise;
     };
