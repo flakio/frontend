@@ -91,7 +91,7 @@ function CatalogService($q, $http) {
             method: 'GET',
             url: '/api/catalog/categories'
         }).then(function successCallback(response) {
-            deferred.resolve(response);
+            deferred.resolve(response.data);
         }, function errorCallback(response) {
             
             //If we can't connect put the sample data in there for now

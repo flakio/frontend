@@ -1,7 +1,7 @@
 
 (
-  function(){
-    var Address = function(address, city, state, zip, planet){
+  function () {
+    var Address = function (address, city, state, zip, planet) {
       this.address = address;
       this.city = city;
       this.state = state;
@@ -9,7 +9,7 @@
       this.planet = planet;
     };
 
-    function CheckoutController(cartService, $rootScope, $http){
+    function CheckoutController(cartService, $rootScope, $http) {
 
       var self = this;
       self.total = 0;
@@ -18,9 +18,9 @@
 
       self.address = new Address('42 Zone 8 Floor --83', '4th Colony', 'DS', 'GZ^53', 'Mars');
 
-      var readItems = function(){
+      var readItems = function () {
         self.cartItems = cartService.getItems();
-        self.total = self.cartItems.reduce(function(prev, cur){
+        self.total = self.cartItems.reduce(function (prev, cur) {
           return prev + cur.price * cur.quantity;
         }, 0)
 
@@ -28,9 +28,9 @@
         self.isEmpty = self.cartItems.length === 0;
       };
 
-      var getOrder = function(){
+      var getOrder = function () {
 
-        var items = cartService.getItems().map(function(item){
+        var items = cartService.getItems().map(function (item) {
           return {
             productId: item.id,
             productName: item.title,
@@ -39,8 +39,8 @@
           }
         });
 
-        return{
-          customerId:"bmscholl",
+        return {
+          customerId: "bmscholl",
           email: self.email,
           total: self.total,
           shippingAddress: self.address,
@@ -48,24 +48,23 @@
         }
       };
 
-      self.removeItem = function(item){
+      self.removeItem = function (item) {
         cartService.removeItem(item)
       }
 
-      self.checkout = function(){
+      self.checkout = function () {
 
         self.allowCheckout = false;
-        $http.post('/order', getOrder())
-          .then(function(data){
+        $http.post('/api/order', getOrder())
+          .then(function (data) {
             $location.url('/#/thankyou');
-          }, function(error){
+          }, function (error) {
             self.allowCheckout = true;
             alert('can not checkout: ' + error.statusText)
           });
-
       };
 
-      $rootScope.$on('cart:change', function(){
+      $rootScope.$on('cart:change', function () {
         readItems();
       });
 
@@ -73,7 +72,7 @@
     }
 
     angular.module('flakio')
-      .controller('Checkout',CheckoutController);
+      .controller('Checkout', CheckoutController);
   }
 )();
 
