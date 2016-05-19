@@ -51,7 +51,7 @@ function CatalogItemController(catalogService, $routeParams, cartService) {
 function CatalogService($q, $http) {
     var self = this;
 
-    var items = [{
+    var sampleProducts = [{
         id: '1',
         categoryId: 1,
         title: 'Lazer Blaster',
@@ -79,8 +79,15 @@ function CatalogService($q, $http) {
     this.item = function (id) {
         var deferred = $q.defer();
 
-        deferred.resolve(catalog.find(function (x) { return x.id == id }));
-
+        $http({
+            method: 'GET',
+            url: '/api/catalog/products/' + id
+        }).then(function successCallback(response) {
+            deferred.resolve(response.data);
+        }, function errorCallback(response) {
+            deferred.resolve(items);
+        });
+ 
         return deferred.promise;
     };
 
@@ -122,7 +129,7 @@ function CatalogService($q, $http) {
         }).then(function successCallback(response) {
             deferred.resolve(response.data);
         }, function errorCallback(response) {
-            deferred.resolve(items);
+            deferred.resolve(sampleProducts);
         });
  
         return deferred.promise;
