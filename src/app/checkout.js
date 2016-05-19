@@ -9,11 +9,11 @@
       this.planet = planet;
     };
 
-    function CheckoutController(cartService, $rootScope, $http) {
+    function CheckoutController(cartService, $rootScope, $http, $location) {
 
       var self = this;
       self.total = 0;
-      self.email = 'trent@krillan.com';
+      self.email = 'test@krillan.com';
       self.allowCheckout = true;
 
       self.address = new Address('42 Zone 8 Floor --83', '4th Colony', 'DS', 'GZ^53', 'Mars');
@@ -40,7 +40,7 @@
         });
 
         return {
-          customerId: "bmscholl",
+          customerId: "flakio",
           email: self.email,
           total: self.total,
           shippingAddress: self.address,
