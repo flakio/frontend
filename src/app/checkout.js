@@ -55,7 +55,7 @@
       self.checkout = function () {
 
         self.allowCheckout = false;
-        $http.post('/api/order', getOrder())
+        $http.post('/api/order/', getOrder())
           .then(function (data) {
             $location.url('/thankyou');
           }, function (error) {
