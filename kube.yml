@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flakio-frontend
+  labels:
+    app: flakio-frontend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: flakio-frontend
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flakio-frontend
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: flakio-frontend
+    spec:
+      containers:
+      - name: flakio-frontend
+        image: flakio/frontend:53
+        ports:
+        - containerPort: 80

@@ -3,7 +3,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "flakio/frontend:51",
+      "image": "flakio/frontend:52",
       "privileged": false,
       "network": "BRIDGE",
       "portMappings": [
