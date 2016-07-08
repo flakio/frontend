@@ -25,7 +25,6 @@
         }
     </style>
 </head>
-
 <body layout="row" ng-cloak ng-controller="Main as mainCtrl">
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <md-toolbar class="md-tall md-hue-2">
@@ -37,21 +36,16 @@
         <md-list>
             <md-item ng-repeat="item in mainCtrl.categories">
                 <a class="sidenav" ng-href="/#/{{item.id || ''}}">
-                <md-item-content md-ink-ripple layout="row" layout-align="start center">
-                    <div class="inset">
-                    <ng-md-icon icon="dashboard"></ng-md-icon>
-                    </div>
-                    <div class="inset">{{item.name}}
-                    </div>
-                </md-item-content>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <ng-md-icon icon="dashboard"></ng-md-icon>
+                        </div>
+                        <div class="inset">{{item.name}}
+                        </div>
+                    </md-item-content>
                 </a>
             </md-item>
-            <h2 class="menu-heading md-subhead ">
-                <a href="demo.html">Demo</a>
-            </h2>
         </md-list>
-
-
     </md-sidenav>
     <div layout="column" class="relative" layout-fill role="main">
         <md-toolbar>
@@ -59,7 +53,7 @@
                 <h3>Microservices sample</h3>
                 <span flex></span>
                 <h3><a href="/#/checkout/"> Cart  (<span class="cart-count">{{mainCtrl.totalItems}}</span>)</a></h3>
-</div>
+            </div>
         </md-toolbar>
         <md-content flex md-scroll-y>
             <div layout="column" layout-fill layout-padding ng-view>
@@ -79,5 +73,4 @@
     <script type="text/javascript" src="/app/catalog.js"></script>
     <script type="text/javascript" src="/app/checkout.js"></script>
 </body>
-
 </html>

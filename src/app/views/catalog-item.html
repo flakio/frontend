@@ -1,20 +1,19 @@
 <div layout="row">
-	<div layout="column">
+    <div layout="column">
         <a class="clickable" ng-click="vm.back()" style="cursor:pointer;">
             <h4>
-                <i class="material-icons" style="top: 4px;
-    position: relative; ">arrow_back</i> Back to catalog
+                <i class="material-icons" style="top: 4px; position: relative; ">arrow_back</i> Back to catalog
             </h4>
         </a>
     </div>
 </div>
 <div layout="row">
-	<div layout="column" style="max-width:400px;display:block">
-		<img ng-src="{{vm.item.productArtUrl}}"  alt="{{vm.item.title}} Image" style="width: 100%;
+    <div layout="column" style="max-width:400px;display:block">
+        <img ng-src="{{vm.item.productArtUrl}}" alt="{{vm.item.title}} Image" style="width: 100%;
     height: 100%;
     display: inline-block;">
-	</div>
-	<div layout="column">
+    </div>
+    <div layout="column">
         <md-content class="md-padding" flex layout-padding>
             <h2>
                 {{vm.item.title}}
@@ -36,8 +35,9 @@
                 <div layout="column">
                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
                         <md-button ng-show="vm.item" class="md-button md-primary md-default md-raised" ng-click="vm.addToCart()" style="margin-left:0;">Add to cart</md-button>
-                        <md-button ng-show="vm.item" class="md-button md-default md-raised" ng-click="/#/checkout/" style="margin-left:0;">Checkout</md-button></section>
-</div>
+                        <md-button ng-show="vm.item" class="md-button md-default md-raised" ng-click="/#/checkout/" style="margin-left:0;">Checkout</md-button>
+                    </section>
+                </div>
             </div>
         </md-content>
     </div>
